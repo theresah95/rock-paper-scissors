@@ -18,3 +18,5 @@ function getComputerChoice () {
 //To test getComputerChoice
 // console.log(getComputerChoice());
 
+function playRound() {};
+
