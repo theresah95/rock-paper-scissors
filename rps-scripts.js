@@ -29,7 +29,7 @@ function getComputerChoice () {
  * It takes two parameters: playerSelection and computerSelection
  * Returns a string that indicates the winner of the round
  */
-function playRound(playerSelection, computerSelection) {
+function playRound (playerSelection, computerSelection) {
 
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
@@ -41,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (player == "scissors" && computer == "paper") {
         return 1;
     } else if (player == computer) {
-        return "tie";
+        return -1;
     } else {
         return 0;
     };
@@ -51,6 +51,18 @@ function playRound(playerSelection, computerSelection) {
 //To test playRound function
 // console.log(playRound("rock", getComputerChoice()));
 
+function playGame(){
+    //Get Player's Selection
+    let playerSelection = prompt("Rock, paper, or scissors?");
+    console.log("You played: " + playerSelection);
+    //Get Computer's Selection
+    let computerSelection = getComputerChoice();
+    console.log("Computer played: " + computerSelection); 
+    //Play a round and store result
+    let result = playRound(playerSelection, computerSelection);
+    //Return result
+    return result;
+};
 /* game() function
  * playRound() is used inside this function
  * Get user input for the player's move
@@ -63,30 +75,24 @@ function game() {
     let computerTotal = 0;
 
     for (let i=0; i<5; i++){
-        //Get Player's Selection
-        let playerSelection = prompt("Rock, paper, or scissors?");
-        console.log("You played: " + playerSelection);
-        //Get Computer's Selection
-        let computerSelection = getComputerChoice();
-        console.log("Computer played: " + computerSelection); 
-        //Play a round and store result
-        let result = playRound(playerSelection, computerSelection);
-
-        //Store results in tally
+        let result = playGame();
+       //Store results in tally
         if (result == 1){
             playerTotal = playerTotal + 1;
-        } else {
+        } else if (result == 0) {
             computerTotal = computerTotal + 1;
-        }  
+        }
     }
 
     //Check totals
     if (playerTotal > computerTotal) {
         //Player wins
         console.log(`You win! ${playerTotal} vs. ${computerTotal}`);
-    } else {
+    } else if (computerTotal > playerTotal){
         //Computer wins
-        console.log(`Computer wins. ${computerTotal} vs. ${playerTotal}`)
+        console.log(`Computer wins. ${computerTotal} vs. ${playerTotal}`);
+    } else {
+        console.log(`Tie Game! ${playerTotal} vs. ${computerTotal}`);
     }
 };
 
