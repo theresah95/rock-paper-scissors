@@ -39,32 +39,53 @@ function playRound (playerSelection) {
     let computer = computerSelection.toLowerCase();
     
     let result = checkResult(player, computer);
+
     scoreKeeper(result);
 
+    
+
 };
+
+/** Score Keeping Function
+ * @param {*} result
+ * Result is taken from round and added to winning player's total
+ * Once total reaches five on either side then a message is printed showing result 
+ */
 
 function scoreKeeper (result) {
 
+    //Accessing the score div 
     const score = document.getElementById('score');
-    if (result == 1) {
-        playerScore++;
-    } else if (result == 0){
-        computerScore++;
-    } else if (result == -1) {
-        score.textContent = `Tie Round. \n You: ${playerScore} vs. Computer: ${computerScore}`;
+    //Checking for total scores less than 5
+    if (playerScore < 5 && computerScore < 5){
+        if (result == 1) {
+            //if 1, then player's score increases
+            playerScore++;
+        } else if (result == 0){
+            //if 0, then computer's score increases
+            computerScore++;
+        } 
     }
-    if (playerScore > 5 || computerScore > 5) {
-       `You: ${playerScore} vs. Computer: ${computerScore}`;
+    if (playerScore == 5) {
+        //If player wins, message is displayed and game is ended
+        score.textContent = `You win! \n You: ${playerScore} vs. Computer: ${computerScore}`;
         endGame();
-    } else if (playerScore == 5) {
-    score.textContent = `You win! \n You: ${playerScore} vs. Computer: ${computerScore}`;
-    } else if (computerScore == 5) {
-    `Computer wins! \n score.textContent = You: ${playerScore} vs. Computer: ${computerScore}`;
-    } else {
-    score.textContent = `You: ${playerScore} vs. Computer: ${computerScore}`;
-      }
+        } else if (computerScore == 5) {
+            //If computer wins, message is displayed and game is ended
+            score.textContent = `Computer wins! \n You: ${playerScore} vs. Computer: ${computerScore}`;
+            endGame();
+        } else {
+            //Otherwise, keep playing and show scores as we
+            score.textContent = `You: ${playerScore} vs. Computer: ${computerScore}`;
+          }
 };
 
+/**
+ * Check Result Function
+ * @param {*} player 
+ * @param {*} computer 
+ * @returns 1 if player wins, 0 if computer wins, or -1 if tie
+ */
 function checkResult (player, computer){
     if (player == "rock" && computer == "scissors") {
         return 1;
