@@ -1,6 +1,7 @@
 //Score variables
 let playerScore = 0;
 let computerScore = 0;
+
 /* getComputerChoice function
  * Randomly chooses a number between 0 and 2
  * Then selects the corresponding move
@@ -36,10 +37,39 @@ function playRound (playerSelection) {
     let computerSelection = getComputerChoice();
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
+    
+    let result = checkResult(player, computer);
+    scoreKeeper(result);
 
+};
+
+function scoreKeeper (result) {
+
+    const score = document.getElementById('score');
+    if (result == 1) {
+        playerScore++;
+    } else if (result == 0){
+        computerScore++;
+    } else if (result == -1) {
+        score.textContent = `Tie Round. \n You: ${playerScore} vs. Computer: ${computerScore}`;
+    }
+    if (playerScore > 5 || computerScore > 5) {
+       `You: ${playerScore} vs. Computer: ${computerScore}`;
+        endGame();
+    } else if (playerScore == 5) {
+    score.textContent = `You win! \n You: ${playerScore} vs. Computer: ${computerScore}`;
+    } else if (computerScore == 5) {
+    `Computer wins! \n score.textContent = You: ${playerScore} vs. Computer: ${computerScore}`;
+    } else {
+    score.textContent = `You: ${playerScore} vs. Computer: ${computerScore}`;
+      }
+};
+
+function checkResult (player, computer){
     if (player == "rock" && computer == "scissors") {
         return 1;
     } else if (player == "paper" && computer == "rock") {
+        
         return 1;
     } else if (player == "scissors" && computer == "paper") {
         return 1;
@@ -48,26 +78,28 @@ function playRound (playerSelection) {
     } else {
         return 0;
     };
-
 };
-
-function game () {};
 
 
 //Buttons to Play a Round
 //Rock Button
 const rock = document.getElementById('rock');
-rock.addEventListener('click', () => playRound('rock'));
+rock.addEventListener('click', () => (playRound('rock')));
 //Paper Button
 const paper = document.getElementById('paper');
-paper.addEventListener('click', () => playRound('paper'));
+paper.addEventListener('click', () => (playRound('paper')));
 //Scissors Button
 const scissors = document.getElementById('scissors');
-scissors.addEventListener('click', () => playRound('scissors'));
+scissors.addEventListener('click', () => (playRound('scissors')));
 
-//Score results
-const score = document.getElementById('score');
-score.textContent = `You: ${playerScore} vs. Computer: ${computerScore}`;
+//End of Game
+function endGame () {
+
+    const endGame = document.getElementById('endgame');
+    endGame.textContent = `Game has ended. Please play again.`; 
+
+};
+
 
 
 
