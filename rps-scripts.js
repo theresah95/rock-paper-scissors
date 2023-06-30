@@ -119,7 +119,7 @@ function endGame () {
     const endGame = document.getElementById('endgame');
     endGame.style.display = "flex";
     endGame.style.justifyContent = "center";
-    endGame.textContent = `Game has ended. Please play again.`; 
+    endGame.textContent = `Game has ended. Please refresh to play again.`; 
 
 };
 
