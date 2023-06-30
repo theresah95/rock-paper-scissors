@@ -54,22 +54,27 @@ function playRound (playerSelection, computerSelection) {
 function playGame(){
     //Get Player's Selection
     let playerSelection = prompt("Rock, paper, or scissors?");
-    console.log("You played: " + playerSelection);
+    //console.log("You played: " + playerSelection);
     //Get Computer's Selection
     let computerSelection = getComputerChoice();
-    console.log("Computer played: " + computerSelection); 
+    //console.log("Computer played: " + computerSelection); 
     //Play a round and store result
     let result = playRound(playerSelection, computerSelection);
     //Return result
-    return result;
+    return console.log(result);
 };
+
+playGame();
+
+
+
 /* game() function
  * playRound() is used inside this function
  * Get user input for the player's move
  * Play five rounds and keep track of who wins
  * Display the winner at the end of five rounds
  */
-function game() {
+/*function game() {
 
     let playerTotal = 0;
     let computerTotal = 0;
@@ -97,3 +102,5 @@ function game() {
 };
 
 game();
+
+*/
