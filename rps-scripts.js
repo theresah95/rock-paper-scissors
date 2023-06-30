@@ -1,7 +1,6 @@
-//Global Variables
-let computerScore = 0;
+//Score variables
 let playerScore = 0;
-
+let computerScore = 0;
 /* getComputerChoice function
  * Randomly chooses a number between 0 and 2
  * Then selects the corresponding move
@@ -38,7 +37,6 @@ function playRound (playerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
 
-
     if (player == "rock" && computer == "scissors") {
         return 1;
     } else if (player == "paper" && computer == "rock") {
@@ -52,6 +50,9 @@ function playRound (playerSelection) {
     };
 
 };
+
+function game () {};
+
 
 //Buttons to Play a Round
 //Rock Button
@@ -70,60 +71,3 @@ score.textContent = `You: ${playerScore} vs. Computer: ${computerScore}`;
 
 
 
-/*
-//To test playRound function
-// console.log(playRound("rock", getComputerChoice()));
-
-function playGame(){
-    //Get Player's Selection
-    let playerSelection = prompt("Rock, paper, or scissors?");
-    //console.log("You played: " + playerSelection);
-    //Get Computer's Selection
-    let computerSelection = getComputerChoice();
-    //console.log("Computer played: " + computerSelection); 
-    //Play a round and store result
-    let result = playRound(playerSelection, computerSelection);
-    //Return result
-    return console.log(result);
-};
-
-playGame();
-
-*/
-
-/* game() function
- * playRound() is used inside this function
- * Get user input for the player's move
- * Play five rounds and keep track of who wins
- * Display the winner at the end of five rounds
- */
-/*function game() {
-
-    let playerTotal = 0;
-    let computerTotal = 0;
-
-    for (let i=0; i<5; i++){
-        let result = playGame();
-       //Store results in tally
-        if (result == 1){
-            playerTotal = playerTotal + 1;
-        } else if (result == 0) {
-            computerTotal = computerTotal + 1;
-        }
-    }
-
-    //Check totals
-    if (playerTotal > computerTotal) {
-        //Player wins
-        console.log(`You win! ${playerTotal} vs. ${computerTotal}`);
-    } else if (computerTotal > playerTotal){
-        //Computer wins
-        console.log(`Computer wins. ${computerTotal} vs. ${playerTotal}`);
-    } else {
-        console.log(`Tie Game! ${playerTotal} vs. ${computerTotal}`);
-    }
-};
-
-game();
-
-*/
