@@ -35,19 +35,21 @@ function playRound (playerSelection, computerSelection) {
     let computer = computerSelection.toLowerCase();
 
     if (player == "rock" && computer == "scissors") {
-        return 1;
+        return console.log("You win!");
     } else if (player == "paper" && computer == "rock") {
-        return 1;
+        return console.log("You win!");
     } else if (player == "scissors" && computer == "paper") {
-        return 1;
+        return console.log("You win!");
     } else if (player == computer) {
-        return -1;
+        return console.log("Tie");
     } else {
-        return 0;
+        return console.log("Computer Wins!");
     };
 
 };
 
+
+/*
 //To test playRound function
 // console.log(playRound("rock", getComputerChoice()));
 
@@ -66,7 +68,7 @@ function playGame(){
 
 playGame();
 
-
+*/
 
 /* game() function
  * playRound() is used inside this function
