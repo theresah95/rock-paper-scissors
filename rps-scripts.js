@@ -29,8 +29,9 @@ function getComputerChoice () {
  * It takes two parameters: playerSelection and computerSelection
  * Returns a string that indicates the winner of the round
  */
-function playRound (playerSelection, computerSelection) {
+function playRound (playerSelection) {
 
+    let computerSelection = getComputerChoice();
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
 
@@ -47,6 +48,17 @@ function playRound (playerSelection, computerSelection) {
     };
 
 };
+
+//Buttons to Play a Round
+//Rock Button
+const rock = document.getElementById('rock');
+rock.addEventListener('click', () => playRound('rock'));
+//Paper Button
+const paper = document.getElementById('paper');
+paper.addEventListener('click', () => playRound('paper'));
+//Scissors Button
+const scissors = document.getElementById('scissors');
+scissors.addEventListener('click', () => playRound('scissors'));
 
 
 /*
