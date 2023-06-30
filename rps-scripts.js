@@ -1,9 +1,12 @@
+//Global Variables
+let computerScore = 0;
+let playerScore = 0;
+
 /* getComputerChoice function
  * Randomly chooses a number between 0 and 2
  * Then selects the corresponding move
  * Returns computer's move as a string
  */
- 
 function getComputerChoice () {
 
     let rock = "rock";
@@ -35,16 +38,17 @@ function playRound (playerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
 
+
     if (player == "rock" && computer == "scissors") {
-        return console.log("You win!");
+        return 1;
     } else if (player == "paper" && computer == "rock") {
-        return console.log("You win!");
+        return 1;
     } else if (player == "scissors" && computer == "paper") {
-        return console.log("You win!");
+        return 1;
     } else if (player == computer) {
-        return console.log("Tie");
+        return -1;
     } else {
-        return console.log("Computer Wins!");
+        return 0;
     };
 
 };
@@ -59,6 +63,11 @@ paper.addEventListener('click', () => playRound('paper'));
 //Scissors Button
 const scissors = document.getElementById('scissors');
 scissors.addEventListener('click', () => playRound('scissors'));
+
+//Score results
+const score = document.getElementById('score');
+score.textContent = `You: ${playerScore} vs. Computer: ${computerScore}`;
+
 
 
 /*
