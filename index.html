@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+   <!--<link rel="stylesheet" type="text/css" href="styles.css" /> -->
     <script src="rps-scripts.js" defer></script>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        h2 {
+            display: flex;
+            justify-content: center;
+        }
+        #gameButtons {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 10px auto;
+        }
+    </style>
 </head>
 <header>
     <button onClick="window.location.reload();">Refresh Page</button>
+    <h1>
+        Rock, Paper, Scissors
+    </h1>
 </header>
 <body>
-    <h1> Make a Selection</h1>
+    <h2> Make a Selection</h2>
     <!-- Player Selection Buttons-->
     <div id="gameButtons">
         <button id="rock">Rock</button>
