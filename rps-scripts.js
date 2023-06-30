@@ -42,8 +42,6 @@ function playRound (playerSelection) {
 
     scoreKeeper(result);
 
-    
-
 };
 
 /** Score Keeping Function
@@ -54,8 +52,10 @@ function playRound (playerSelection) {
 
 function scoreKeeper (result) {
 
-    //Accessing the score div 
+    //Accessing the score div and adds style
     const score = document.getElementById('score');
+    score.style.display = "flex";
+    score.style.justifyContent = "center";
     //Checking for total scores less than 5
     if (playerScore < 5 && computerScore < 5){
         if (result == 1) {
@@ -117,6 +117,8 @@ scissors.addEventListener('click', () => (playRound('scissors')));
 function endGame () {
 
     const endGame = document.getElementById('endgame');
+    endGame.style.display = "flex";
+    endGame.style.justifyContent = "center";
     endGame.textContent = `Game has ended. Please play again.`; 
 
 };
